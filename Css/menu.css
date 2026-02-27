@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@300;400;700&family=Ribeye&display=swap');
+
+/* --- Estilos Generales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #222222; /* Fondo gris oscuro exacto */
+    color: white;
+    overflow-x: hidden;
+}
+
+button { cursor: pointer; border: none; }
+img { width: 100%; border-radius: 12px; display: block; }
+ul { list-style: none; }
+a { text-decoration: none; }
+
+/* --- Header y Navbar --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #3b141c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-text {
+    font-family: "Ribeye", cursive;
+    color: white !important;
+    font-size: 26px;
+    margin-left: 8px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #e47412 !important;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    color: white;
+    align-items: center;
+}
+
+.carrito, .nav-login {
+    position: relative;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.carrito:hover, .nav-login:hover {
+    color: #ee7417;
+}
+
+#contador {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #e2750f;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* --- Título de Sección --- */
+.main-title {
+    text-align: center;
+    margin-top: 110px;
+    font-size: 32px;
+    font-family: 'Righteous', cursive;
+    letter-spacing: 1px;
+}
+
+.main-title::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #e2750f;
+    margin: 8px auto;
+}
+
+/* --- Contenedor de Productos (4 Columnas) --- */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Tarjetas (Ecard) --- */
+.ecard {
+    background: linear-gradient(145deg, #3b141c, #4a1a23);
+    border-radius: 20px;
+    /* Base para 4 columnas: (100% / 4) menos el gap */
+    flex: 1 1 calc(25% - 20px); 
+    min-width: 250px;
+    max-width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.ecard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.ecard h2 {
+    font-family: 'Righteous', cursive;
+    margin: 15px 0 8px;
+    font-size: 18px;
+    color: white;
+}
+
+.ecard p {
+    font-size: 12px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #ddd;
+    flex-grow: 1; /* Empuja los botones al final */
+}
+
+/* --- Botones Compactos --- */
+.btn-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.btn-orange {
+    background-color: #e2750f;
+    color: white;
+    padding: 7px 22px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    transition: 0.2s;
+    width: auto; /* No ocupan todo el ancho */
+    white-space: nowrap;
+}
+
+.btn-orange:hover {
+    background-color: #ff8c1a;
+    transform: scale(1.03);
+}
+
+/* --- Responsive --- */
+
+/* 3 Columnas en tablets grandes */
+@media (max-width: 1150px) {
+    .ecard { flex: 1 1 calc(33.33% - 20px); }
+}
+
+/* 2 Columnas en tablets pequeñas */
+@media (max-width: 850px) {
+    .ecard { flex: 1 1 calc(50% - 20px); }
+    .nav-menu { display: none; } /* Ocultar menú para el futuro hamburguesa */
+}
+
+/* 1 Columna en móviles */
+@media (max-width: 500px) {
+    .ecard { 
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .main-title { font-size: 26px; }
+}
